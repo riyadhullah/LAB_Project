@@ -22,6 +22,7 @@
 }
 
 .left{
+    flex: 1 1 calc(50% );
     width: 150px;
     height: 900px;
     border: 2px black solid;
@@ -35,6 +36,8 @@
 }
 
 .right{
+    flex: 1 1 calc(50% );
+
     width: 150px;
     height: 900px;
     border: 2px black solid;
@@ -47,24 +50,28 @@
 }
 
 .mid11{
+    flex: 1 1 calc(33.333% - 20px);
     height: 100px;
     border: 2px black solid;
     margin-bottom: 10px;
 }
 
 .mid12{
+    flex: 1 1 calc(33.333% - 20px);
     height: 100px;
     border: 2px black solid;
     margin-bottom: 10px;
 }
 
 .mid2{
+    flex: 1 1 calc(33.333% - 20px);
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
 }
 
 .mid21{
+    flex: 1 1 calc(33.333% - 20px);
     width: 200px;
     height: 100px;
     border: 2px black solid;
@@ -72,29 +79,34 @@
 }
 
 .mid22{
+    flex: 1 1 calc(33.333% - 20px);
     width: 200px;
     height: 100px;
     border: 2px black solid;
     margin-right: 10px;
 }
 .mid23{
+    flex: 1 1 calc(33.333% - 20px);
     width: 200px;
     height: 100px;
     border: 2px black solid;
 }
 .mid3{
+    flex: 1 1 calc(33.333% - 20px);
     height: 300px;
-    border: 2px red solid;
+    border: 2px black solid;
     margin-bottom: 10px;
 }
 
 .mid4{
+    flex: 1 1 calc(33.333% - 20px);
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
 }
 
 .mid41{
+    flex: 1 1 calc(33.333% - 20px);
     width: 450px;
     height: 450px;
     margin: auto;
@@ -104,8 +116,41 @@
 }
 
 .mid42{
+    flex: 1 1 calc(33.333% - 20px);
     width: 150px;
     height: 450px;
     text-align: center;
     border: 2px black solid;
+}
+
+.table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.table th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table td {
+    color: #333;
 }
