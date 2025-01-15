@@ -142,6 +142,19 @@
                 echo "<p>Token: ".$token."</p>";
                 echo "<p>Fees: ".$fees."</p>";
                 echo "</div>";
+
+                    // $conn = mysqli_connect('localhost', 'root','', "bookBorrowing");
+                
+                    // $query1 = "select * from bookrecords where bookName=$book";
+
+                    // $result5 = mysqli_query($conn, $query1);
+                    // $row = mysqli_fetch_array($result5);
+
+                    // $quantity = ($row["quantity"] ?? "") - 1;
+                    
+                    // $query2 = "UPDATE `bookrecords` SET `quantity` = '$quantity' WHERE bookName=$book";
+                    // mysqli_query($conn, $query2);
+    
             }
 
             if(!empty($errors))

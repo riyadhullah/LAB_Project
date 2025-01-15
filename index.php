@@ -4,6 +4,8 @@
     $query = "select * from bookrecords";
 
     $result = mysqli_query($conn, $query);
+    $result1 = mysqli_query($conn, $query);
+    $result2 = mysqli_query($conn, $query);
 ?>
 
 
@@ -30,8 +32,7 @@
                     
                         foreach ($usedToken as $key)
                         {
-                            echo $key; 
-                            echo "<br>";
+                            echo "<div class='token-box'>$key</div>";
                         }
                     }
                 ?>
@@ -42,12 +43,12 @@
                         <table class="table">
 
                             <tr>
-                                <td>ID</td>
-                                <td>Book name</td>
-                                <td>Author</td>
-                                <td>Isbn</td>
-                                <td>Quantity</td>
-                                <td>Category</td>
+                                <th>ID</th>
+                                <th>Book name</th>
+                                <th>Author</th>
+                                <th>Isbn</th>
+                                <th>Quantity</th>
+                                <th>Category</th>
                             </tr>
                             <?php
                                 while($row = mysqli_fetch_assoc($result))
@@ -67,7 +68,39 @@
 
                         </table>
                     </div>
-                    <div class="mid12"></div>
+                    <div class="mid12">
+                        <table class="table">
+
+                            <tr>
+                                <th>ID</th>
+                                <th>Book name</th>
+                                <th>Author</th>
+                                <th>Isbn</th>
+                                <th>Quantity</th>
+                                <th>Category</th>
+                                <th>Action</th>
+                            </tr>
+                            <?php
+                                while($rows = mysqli_fetch_assoc($result1))
+                                {
+                                    echo "<tr>
+                                    <td>$rows[id]</td>
+                                    <td>$rows[bookName]</td>
+                                    <td>$rows[authorName]</td>
+                                    <td>$rows[isbn]</td>
+                                    <td>$rows[quantity]</td>
+                                    <td>$rows[category]</td>
+                                    <td>
+                                        <a href='edit.php?id=$rows[id]' >Edit</a><br>
+                                        <a href='delete.php?id=$rows[id]' >Delete</a>
+                                    </td>
+                                    </tr>";
+                                }
+                                
+                            ?>
+
+                        </table>
+                    </div>
                 </div>
                 <div class="mid2">
                     <div class="mid21"><img src ="book01.jpg" class="img_center"></div>
@@ -77,11 +110,11 @@
                 <div class="mid3">
                     <form style="text-align: center;" action="insertData.php" method="post">
                         <h4>Book Insertion</h4>
-                        Book name: <input type="Text" placeholder="Enter book name" name="bookName" id="bookName"><br><br>
-                        Author   : <input type="Text" placeholder="Enter author name" name="authorName" id="authorName"><br><br>
-                        Isbn     : <input type="Text" placeholder="Enter isbn" name="isbn" id="isbn"><br><br>
-                        Quantity : <input type="Text" placeholder="Enter quantity" name="quantity" id="quantity"><br><br>
-                        Category : <input type="Text" placeholder="Enter category" name="category" id="category"><br><br>
+                        Book name: <input type="Text" placeholder="Enter book name" name="bookName" id="bookName" required>
+                        Author   : <input type="Text" placeholder="Enter author name" name="authorName" id="authorName" required>
+                        Isbn     : <input type="Text" placeholder="Enter isbn" name="isbn" id="isbn" required>
+                        Quantity : <input type="Text" placeholder="Enter quantity" name="quantity" id="quantity" required>
+                        Category : <input type="Text" placeholder="Enter category" name="category" id="category" required>
                         <input type="submit" name="submit" id="submit">
                     </form>
                 </div>
@@ -92,52 +125,36 @@
 
                             <label>Full Name:</label>
                             <input type="text" placeholder="Enter you name" name="name" id ="name" required>
-                            <br><br>
 
                             <label>AIUB ID:</label>
                             <input type="text" placeholder="xx-xxxxx-x" name="id" id="id" required>
-                            <br><br>
 
                             <label>Email:</label>
                             <input type="text" placeholder="Enter you Email" name="email" id="email" required>
-                            <br><br>
 
                             <label>BookList:</label>
                             <select name="book" id="book" required>
                                 <option value="" disabled selected>Select a Book</option>
                                 
-                                <option >Book2</option>
-                                <option value="Book3">Book3</option>
-                                <option value="Book4">Book4</option>
-                                <option value="Book5">Book5</option>
-                                <option value="Book6">Book6</option>
-                                <option value="Book7">Book7</option>
-                                <option value="Book8">Book8</option>
-
                                 <?php
-                                    while($row = mysqli_fetch_assoc($result))
+                                    while($row = mysqli_fetch_assoc($result2))
                                     {
                                         echo "<option value='{$row['bookName']}'>{$row['bookName']}</option>";
                                     }
                                 ?>
                             </select>
-                            <br><br>
 
                             <label >Borrow date:</label>
                             <input type="date" name="borrowDate" id="borrowDate" required>
-                            <br><br>
 
                             <label > Token</label>
                             <input type="number" id="token" name="token" min="0" value="0">
-                            <br><br>
 
                             <label >Return Date</label>
                             <input type="date" id="returnDate" name="returnDate" required>
-                            <br><br>
                             
                             <label >Fees</label>
                             <input type="number" id="fees" name="fees" min="0" step="10" value="0" >
-                            <br><br>
 
                             <input type="submit" name="submit" value="Submit">
 
@@ -163,7 +180,11 @@
                 </div>
             </div>
             <div class="right">
-
+            <form action="searchResults.php" method="POST">
+                <label for="search">Search:</label>
+                <input type="text" id="bookName" name="bookName" placeholder="Enter book name" required>
+                <button type="submit">Search</button>
+            </form>
             </div>
         </div>
     </div>

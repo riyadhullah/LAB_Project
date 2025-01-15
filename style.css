@@ -1,15 +1,21 @@
 .fullBody{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
     margin: auto;
 }
 
-.img{
+.img {
     display: flex;
-    width: 50%;
-    margin: auto;
-    margin-bottom: 10px;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 15vh; /* Full viewport height */
+    margin: auto; /* Center the container */
+}
+
+.img_center {
+    max-width: 100%; /* Ensure the image is responsive */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .h1{
@@ -22,24 +28,44 @@
 }
 
 .left{
-    flex: 1 1 calc(50% );
+    flex: 1 1 calc(20% );
     width: 150px;
-    height: 900px;
+    height: 2050px;
     border: 2px black solid;
     margin-left: 10px;
 }
 
+.left h5 {
+    margin: 0; /* Remove default margin */
+    color: #4CAF50; /* Green color */
+    font-size: 1.5em; /* Larger font size */
+    text-align: center; /* Center the heading text */
+}
+
+/* Style for the token boxes */
+.token-box {
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Inner spacing */
+    background-color: #ffffff; /* White background */
+    margin: 10px 0; /* Spacing between boxes */
+    text-align: center; /* Center the text inside the box */
+    width: 80%; /* Responsive width */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
 .mid{
+    flex: 1 1 calc(60% );
     width: 600px;
     height: 900px;
     margin-left: 10px;
 }
 
 .right{
-    flex: 1 1 calc(50% );
+    flex: 1 1 calc(20% );
 
     width: 150px;
-    height: 900px;
+    height: 2050px;
     border: 2px black solid;
     margin-left: 10px;
 }
@@ -92,23 +118,23 @@
     border: 2px black solid;
 }
 .mid3{
-    flex: 1 1 calc(33.333% - 20px);
-    height: 300px;
+    flex: 1 1 calc(50% - 20px);
+    height: 65%;
     border: 2px black solid;
     margin-bottom: 10px;
 }
-
 .mid4{
     flex: 1 1 calc(33.333% - 20px);
+    height: 450px;
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
 }
 
 .mid41{
-    flex: 1 1 calc(33.333% - 20px);
+    flex: 1 1 calc(66.333% - 20px);
     width: 450px;
-    height: 450px;
+    height: 850px;
     margin: auto;
     border: 2px black solid;
     text-align: center;
@@ -118,7 +144,7 @@
 .mid42{
     flex: 1 1 calc(33.333% - 20px);
     width: 150px;
-    height: 450px;
+    height: 850px;
     text-align: center;
     border: 2px black solid;
 }
@@ -154,3 +180,68 @@
 .table td {
     color: #333;
 }
+
+form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Form labels */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Text inputs, dropdowns, and date inputs */
+input[type="text"], 
+input[type="number"], 
+input[type="date"], 
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* Dropdown styling */
+select {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* Submit button */
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Responsive design for small screens */
+@media (max-width: 600px) {
+    form {
+        width: 90%;
+        padding: 15px;
+    }
+}
+
