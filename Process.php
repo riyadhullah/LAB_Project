@@ -37,6 +37,8 @@
             $returnDate = $_POST["returnDate"]??"";
             $token = $_POST["token"]??"";
             $fees = $_POST["fees"]??"";
+
+            $bookCookie = str_replace(" ", "", $book);
             
             //name validation
             if (!preg_match("/^([A-Z][a-z]+)\s([A-Z][a-z]+)(\s[A-Z][a-z]+)?$/", $name)) {
@@ -53,11 +55,11 @@
                 $errors[] = "Invalid email format. It should be in the format 'XX-XXXXX-X@student.aiub.edu'.";
             }
 
-            if(!isset($_COOKIE[$book]))
+            if(!isset($_COOKIE[$bookCookie]))
             {
-                setcookie($book, $name, time() + 20);
+                setcookie($bookCookie, $name, time() + 20);
             }
-            else if(isset($_COOKIE[$book]) && $_COOKIE[$book] == $name)
+            else if(isset($_COOKIE[$bookCookie]) && $_COOKIE[$bookCookie] == $name)
             {
 
                 $errors[] = "<h5 style='color: black;'>This book is already borrowed by </h5> <h2 style='color: red;'>$name</h2> ";

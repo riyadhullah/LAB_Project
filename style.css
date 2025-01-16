@@ -76,17 +76,19 @@
 }
 
 .mid11{
-    flex: 1 1 calc(33.333% - 20px);
-    height: 100px;
+    /* flex: 1 1 calc(33.333% - 20px); */
+    height: 250px;
     border: 2px black solid;
     margin-bottom: 10px;
+    overflow: auto;
 }
 
 .mid12{
-    flex: 1 1 calc(33.333% - 20px);
-    height: 100px;
+    /* flex: 1 1 calc(33.333% - 20px); */
+    height: 250px;
     border: 2px black solid;
     margin-bottom: 10px;
+    overflow: auto;
 }
 
 .mid2{
